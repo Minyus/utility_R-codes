@@ -1,0 +1,36 @@
+---
+title: "Use SQL in R"
+output: html_notebook
+---
+
+
+```{r}
+library(sqldf)
+#options(sqldf.driver = "RSQLite")
+#library(tidyverse)
+```
+
+```{r}
+mtcars
+```
+
+
+
+
+
+```{r}
+df <- sqldf("
+SELECT mpg, cyl, disp
+FROM mtcars 
+WHERE cyl >= 5 
+")
+df
+```
+
+```{r}
+sqldf("
+SELECT count(*) 
+FROM mtcars 
+")
+
+```
